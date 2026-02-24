@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Arquitectura tecnológica para vendedores digitales. Ordená tu operación, evitá el caos de herramientas sueltas y tomá decisiones con números claros. Consultá con Damián Bengochea." />
+
+  <meta property="og:title" content="dbengotech | Arquitectura y Sistemas para Negocios Digitales" />
+  <meta property="og:description" content="Orden antes que automatización. Sistemas simples, medibles y sin humo para vendedores digitales." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://tu-dominio.com/og-image.jpg" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <meta name="theme-color" content="#090E17" />
+
+  <title>dbengotech | Arquitectura tecnológica para vendedores digitales</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter", "sans-serif"] },
+          colors: {
+            darkBg: "#090E17",
+            cardBg: "#111827",
+            brandBlue: "#3B82F6",
+            brandBlueDark: "#1D4ED8",
+            brandGreen: "#25D366",
+            meliYellow: "#FBBF24",
+            dangerRed: "#EF4444"
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body { font-family: "Inter", sans-serif; background-color: #090E17; color: #F8FAFC; }
+    html { scroll-behavior: smooth; }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    .border-gradient { border: 1px solid transparent; background-origin: border-box; background-clip: padding-box, border-box; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: .08s; }
+    .reveal-delay-2 { transition-delay: .16s; }
+    .reveal-delay-3 { transition-delay: .24s; }
+    .float-soft { animation: floatSoft 4s ease-in-out infinite; }
+    @keyframes floatSoft { 0%,100% { transform: translateY(0px);} 50% { transform: translateY(-6px);} }
+    @media (max-width: 767px) {
+      .mobile-tight p { line-height: 1.45; }
+      .mobile-tight section { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+      .mobile-tight .mobile-reduce { display: none !important; }
+      .mobile-tight .mobile-compact { padding: 1rem !important; }
+      .mobile-tight h2 { line-height: 1.15; }
+    }
+  </style>
+</head>
+
+<body class="antialiased relative overflow-x-hidden mobile-tight">
+
+  <div class="absolute top-0 left-1/2 w-full -translate-x-1/2 h-[500px] bg-brandBlue opacity-20 blur-[120px] rounded-full pointer-events-none z-0"></div>
+
+  <nav class="relative z-10 container mx-auto px-6 py-6 flex justify-between items-center">
+    <a href="#" onclick="window.scrollTo(0,0); return false;"
+       class="flex items-center cursor-pointer select-none"
+       aria-label="dbengotech">
+      <img src="logo-dbengotech.png" alt="dbengotech" class="h-8 md:h-9 w-auto" />
+    </a>
+
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#senales" class="text-sm font-semibold text-slate-300 hover:text-white transition">Señales de humo</a>
+      <a href="#filosofia" class="text-sm font-semibold text-slate-300 hover:text-white transition">Filosofía</a>
+      <a href="#servicios" class="text-sm font-semibold text-slate-300 hover:text-white transition">Servicios</a>
+      <a href="#productos" class="text-sm font-semibold text-slate-300 hover:text-white transition">Sistemas reales</a>
+      <a href="#faq" class="text-sm font-semibold text-slate-300 hover:text-white transition">FAQs</a>
+    </div>
+
+    <a href="#contacto" class="text-sm font-bold bg-white/10 border border-white/20 px-4 py-2 rounded-lg hover:bg-white/20 transition text-white">
+      Hablemos
+    </a>
+  </nav>
+
+  <header class="relative z-10 container mx-auto px-6 py-14 md:py-24 text-center md:text-left md:flex md:items-center md:gap-16 reveal">
+    <div class="md:w-1/2">
+      <div class="inline-block bg-blue-900/30 border border-blue-500/30 text-blue-400 font-semibold uppercase tracking-wider text-[10px] md:text-xs px-3 py-1 rounded-full mb-6">
+        Arquitecto operativo para e-commerce chico
+      </div>
+
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight">
+        Tu e-commerce no necesita más herramientas. Necesita <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">sistema.</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-slate-400 mb-8 font-light leading-relaxed">
+        Trabajo con dueños de e-commerce chico que ya venden, pero operan con estrés. Ordeno antes de automatizar.
+        <span class="mobile-reduce"> Uso tecnología con criterio, no porque esté de moda. Sin humo, sin herramientas de más, sin promesas mágicas.</span>
+      </p>
+
+      <ul class="text-left text-slate-300 space-y-3 mb-10 text-sm md:text-base">
+        <li class="flex items-start gap-3"><span class="text-brandBlue mt-0.5">✓</span> <span><strong class="text-white">Orden primero:</strong> cada proceso tiene dueño, estado y lugar. Nada vive en la cabeza de nadie.</span></li>
+        <li class="flex items-start gap-3"><span class="text-brandBlue mt-0.5">✓</span> <span><strong class="text-white">Números reales:</strong> sabés cuánto te queda de verdad en cada venta, no a fin de mes.</span></li>
+        <li class="flex items-start gap-3"><span class="text-brandBlue mt-0.5">✓</span> <span><strong class="text-white">Tecnología con criterio:</strong> la que necesitás, cuando la necesitás. Ni más, ni menos.</span></li>
+      </ul>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#contacto"
+          class="bg-brandBlue text-white font-bold py-4 px-8 rounded-lg text-center hover:bg-brandBlueDark transition-all shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)]">
+          📅 Hablemos gratis
+        </a>
+
+        <a href="#servicios" class="border border-slate-600 text-white font-bold py-4 px-8 rounded-lg text-center hover:bg-slate-800 transition flex items-center justify-center gap-2">
+          Ver cómo trabajo →
+        </a>
+      </div>
+
+      <p class="text-xs text-slate-500 mt-6">
+        Sin contrato, sin propuesta de 40 páginas. Solo una conversación real.
+      </p>
+    
+    <div class="mt-8 md:hidden reveal reveal-delay-1">
+      <div class="bg-cardBg/90 border border-slate-700/60 rounded-2xl p-4 shadow-xl text-left float-soft">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Control operativo</span>
+          <span class="text-[10px] px-2 py-1 rounded border border-green-500/20 bg-green-500/10 text-green-400">Activo</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-3">
+            <div class="text-[11px] text-slate-500">Margen real</div>
+            <div class="text-lg font-bold text-white">+18.4%</div>
+          </div>
+          <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-3">
+            <div class="text-[11px] text-slate-500">Errores manuales</div>
+            <div class="text-lg font-bold text-white">-63%</div>
+          </div>
+        </div>
+        <div class="mt-3 h-2 rounded-full bg-slate-800 overflow-hidden">
+          <div class="h-full w-2/3 bg-gradient-to-r from-blue-500 to-indigo-400 animate-pulse"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="md:w-1/2 mt-16 md:mt-0 relative hidden md:block">
+      <div class="relative bg-cardBg border border-slate-700/50 rounded-2xl p-6 shadow-2xl backdrop-blur-sm transform rotate-1 hover:rotate-0 transition duration-500">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-brandBlue opacity-10 blur-2xl rounded-full"></div>
+
+        <div class="flex justify-between items-center mb-6 border-b border-slate-800 pb-4">
+          <h3 class="text-slate-400 text-sm font-semibold uppercase tracking-wider">Números claros (sin adivinar)</h3>
+          <span class="bg-green-500/10 text-green-400 text-xs px-2 py-1 rounded border border-green-500/20">Live</span>
+        </div>
+
+        <div class="flex items-end gap-3 mb-8">
+          <span class="text-4xl md:text-5xl font-extrabold text-white">$145.800</span>
+          <span class="text-slate-400 text-sm mb-1 font-medium">/ ticket promedio</span>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex justify-between text-sm">
+            <span class="text-slate-500">Costos pasarela / comisiones</span>
+            <span class="text-red-400 font-medium">- $12.350</span>
+          </div>
+          <div class="flex justify-between text-sm">
+            <span class="text-slate-500">Devoluciones / logística inversa</span>
+            <span class="text-red-400 font-medium">- $8.400</span>
+          </div>
+
+          <div class="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent my-4"></div>
+
+          <div class="flex justify-between text-base md:text-lg font-bold bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+            <span class="text-white">Te queda</span>
+            <span class="text-green-400">$125.050</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute -bottom-6 -left-6 bg-slate-800 border border-slate-600 rounded-lg p-3 shadow-xl flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+        <div class="w-2 h-2 rounded-full bg-green-500"></div>
+        <span class="text-xs font-semibold text-slate-300">Control real (no “magia”)</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-[#0B111A] border-y border-slate-800/50 py-16 md:py-20 relative z-10 reveal">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-white">
+        Reconocés esto. Y te cuesta plata todos los días.
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6 text-slate-400">
+        <div class="bg-cardBg/50 border border-slate-800 p-5 md:p-6 rounded-xl reveal hover:border-slate-600 transition">
+          <h3 class="text-white font-semibold mb-2 flex items-center gap-2"><span class="text-dangerRed">✕</span> No sabés cuánto te queda por venta</h3>
+          <p class="text-sm leading-relaxed">Vendés, entra plata, pero el margen real aparece a fin de mes (o nunca). Precio a ojo y rezás para que alcance.</p>
+        </div>
+
+        <div class="bg-cardBg/50 border border-slate-800 p-5 md:p-6 rounded-xl reveal hover:border-slate-600 transition">
+          <h3 class="text-white font-semibold mb-2 flex items-center gap-2"><span class="text-dangerRed">✕</span> Todo pasa por vos para avanzar</h3>
+          <p class="text-sm leading-relaxed">Si no estás, se frena todo. Es un cuello de botella con tu nombre. Un finde sin celular es impensable.</p>
+        </div>
+
+        <div class="bg-cardBg/50 border border-slate-800 p-5 md:p-6 rounded-xl reveal hover:border-slate-600 transition">
+          <h3 class="text-white font-semibold mb-2 flex items-center gap-2"><span class="text-dangerRed">✕</span> Nadie sabe qué cambió ni quién lo tocó</h3>
+          <p class="text-sm leading-relaxed">Todos tienen acceso a todo. Cuando algo falla, nadie sabe por dónde empezar. Y el cliente se entera antes que vos.</p>
+        </div>
+
+        <div class="bg-cardBg/50 border border-slate-800 p-5 md:p-6 rounded-xl reveal hover:border-slate-600 transition">
+          <h3 class="text-white font-semibold mb-2 flex items-center gap-2"><span class="text-dangerRed">✕</span> Crecer asusta más que ilusiona</h3>
+          <p class="text-sm leading-relaxed">Más pedidos = más caos, más errores y más incendios. Escalar así no es crecimiento: es estrés al cuadrado. Y lo sabés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÑALES DE HUMO -->
+  <section id="senales" class="py-16 md:py-20 container mx-auto px-6 max-w-5xl relative z-10 reveal">
+    <div class="bg-cardBg border border-slate-800/60 rounded-2xl p-8 md:p-10 relative overflow-hidden">
+      <div class="absolute -top-24 -right-24 w-72 h-72 bg-brandBlue opacity-10 blur-3xl rounded-full pointer-events-none"></div>
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-slate-200 font-semibold tracking-wide text-[11px] md:text-xs px-3 py-1.5 rounded-full mb-4">
+            <span class="text-meliYellow">⚠</span>
+            Señales de humo
+          </div>
+
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+            Si tu negocio vive en <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">apps sueltas</span>,
+            no estás escalando: estás sobreviviendo.
+          </h2>
+
+          <p class="text-slate-400 mt-4 text-sm md:text-base leading-relaxed max-w-3xl">
+            Si te pasa 1 o 2, estás a tiempo. Si te pasan 3 o más, estás apagando incendios sin darte cuenta.
+          </p>
+        </div>
+
+        <div class="shrink-0">
+          <div class="bg-slate-900/40 border border-slate-800 rounded-xl px-4 py-3 text-xs text-slate-300">
+            <div class="font-bold text-white mb-1">Remate</div>
+            <div>La tecnología sin orden no escala: <span class="text-dangerRed font-bold">se rompe</span>.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-5">
+          <div class="flex items-start gap-3">
+            <div class="w-9 h-9 rounded-lg bg-brandBlue/10 border border-brandBlue/20 flex items-center justify-center shrink-0">🧩</div>
+            <div>
+              <h3 class="text-white font-bold mb-1">Tenés 10 herramientas… y 0 control</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Cada sistema dice una cosa distinta y nadie sabe cuál es “la verdad” del negocio.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-5">
+          <div class="flex items-start gap-3">
+            <div class="w-9 h-9 rounded-lg bg-brandBlue/10 border border-brandBlue/20 flex items-center justify-center shrink-0">💸</div>
+            <div>
+              <h3 class="text-white font-bold mb-1">El margen real aparece tarde</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Recién “a fin de mes” te das cuenta si ganaste… o si trabajaste gratis.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-5">
+          <div class="flex items-start gap-3">
+            <div class="w-9 h-9 rounded-lg bg-brandBlue/10 border border-brandBlue/20 flex items-center justify-center shrink-0">🧠</div>
+            <div>
+              <h3 class="text-white font-bold mb-1">Todo depende de vos</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Si no estás, se frena todo. Eso no es escala: es un cuello de botella con tu nombre.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-5">
+          <div class="flex items-start gap-3">
+            <div class="w-9 h-9 rounded-lg bg-brandBlue/10 border border-brandBlue/20 flex items-center justify-center shrink-0">🔑</div>
+            <div>
+              <h3 class="text-white font-bold mb-1">Cualquiera tiene acceso a todo</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Cuando algo falla, nadie sabe qué cambió quién. Y ahí empieza el caos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-5 md:col-span-2">
+          <div class="flex items-start gap-3">
+            <div class="w-9 h-9 rounded-lg bg-brandBlue/10 border border-brandBlue/20 flex items-center justify-center shrink-0">🤖</div>
+            <div>
+              <h3 class="text-white font-bold mb-1">Automatizaste… pero estás “ciego”</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Sin alertas, sin logs claros y sin plan B. Si se corta un flujo, te enterás tarde y pagás el costo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-t border-slate-800 pt-8">
+        <p class="text-slate-400 text-sm">
+          Mi enfoque: <span class="text-white font-semibold">orden antes que automatización</span>. Tecnología con criterio, sin humo.
+        </p>
+
+        <a href="#contacto"
+           class="bg-brandBlue text-white font-bold py-3.5 px-6 rounded-lg text-center hover:bg-brandBlueDark transition-all shadow-[0_0_18px_rgba(59,130,246,0.35)] hover:shadow-[0_0_26px_rgba(59,130,246,0.55)]">
+          📅 Te digo en 15 min dónde está el problema
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- /SEÑALES DE HUMO -->
+
+  <section id="filosofia" class="py-16 md:py-20 container mx-auto px-6 max-w-5xl relative z-10 reveal">
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-cardBg border border-green-500/20 p-8 rounded-2xl relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-1 h-full bg-green-500"></div>
+        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+          <span class="bg-green-500/10 text-green-500 p-1 rounded">✔</span> Para quién SÍ es
+        </h3>
+        <ul class="space-y-4 text-slate-300 text-sm">
+          <li class="flex gap-3">
+            <span class="text-green-500 font-bold">→</span>
+            <span>Vendedores digitales con <strong>operación real</strong> (MercadoLibre, Tiendanube, Shopify) que ya facturan.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-green-500 font-bold">→</span>
+            <span>Negocios con equipo chico que usan muchas herramientas desconectadas.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-green-500 font-bold">→</span>
+            <span>Dueños que valoran el <strong>orden y los datos</strong> por sobre las promesas mágicas.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-cardBg border border-red-500/20 p-8 rounded-2xl relative overflow-hidden opacity-80 hover:opacity-100 transition">
+        <div class="absolute top-0 left-0 w-1 h-full bg-red-500"></div>
+        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+          <span class="bg-red-500/10 text-red-500 p-1 rounded">✕</span> Para quién NO es
+        </h3>
+        <ul class="space-y-4 text-slate-400 text-sm">
+          <li class="flex gap-3">
+            <span class="text-red-500 font-bold">→</span>
+            <span>Quienes buscan un “bot mágico” para facturar mientras duermen.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-red-500 font-bold">→</span>
+            <span>Quienes no quieren ordenar procesos antes de automatizar.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-red-500 font-bold">→</span>
+            <span>Negocios que no miden nada y quieren “automatizar a ciegas”.</span>
+          </li>
+        </ul>
+        <p class="text-xs text-slate-500 mt-6">
+          Si buscás “conectar cosas y rezar”, no soy tu persona.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-800/50 bg-[#0B111A] reveal">
+    <div class="container mx-auto px-6 py-12">
+      <p class="text-center text-slate-500 text-xs font-bold uppercase tracking-widest mb-8">Así trabajo (sin vueltas)</p>
+      <div class="flex flex-wrap justify-center gap-8 md:gap-16 text-center">
+        <div class="max-w-[150px]">
+          <div class="text-brandBlue text-xl font-bold mb-2">01</div>
+          <div class="text-white text-sm font-semibold">Entendimiento</div>
+          <div class="text-slate-500 text-xs mt-1">Veo cómo trabajás hoy</div>
+        </div>
+        <div class="max-w-[150px]">
+          <div class="text-brandBlue text-xl font-bold mb-2">02</div>
+          <div class="text-white text-sm font-semibold">Arquitectura</div>
+          <div class="text-slate-500 text-xs mt-1">Defino el orden y el plan</div>
+        </div>
+        <div class="max-w-[150px]">
+          <div class="text-brandBlue text-xl font-bold mb-2">03</div>
+          <div class="text-white text-sm font-semibold">Implementación</div>
+          <div class="text-slate-500 text-xs mt-1">Lo dejo andando y medible</div>
+        </div>
+        <div class="max-w-[150px]">
+          <div class="text-brandBlue text-xl font-bold mb-2">04</div>
+          <div class="text-white text-sm font-semibold">Traspaso</div>
+          <div class="text-slate-500 text-xs mt-1">Lo entiende tu equipo, no solo yo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="py-16 md:py-24 container mx-auto px-6 relative z-10 border-t border-slate-800/50 reveal">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Tres formas de trabajar juntos.</h2>
+      <p class="text-lg text-slate-400">Según dónde estés parado hoy.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-cardBg border border-slate-800 p-6 md:p-8 rounded-2xl shadow-lg reveal hover:-translate-y-2 hover:border-slate-600 transition duration-300 flex flex-col">
+        <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-xl mb-6 border border-slate-700">🔍</div>
+        <h3 class="text-2xl font-bold mb-1 text-white">Diagnóstico</h3>
+        <p class="text-brandBlue text-sm font-semibold mb-6">Demora: ~7 días</p>
+        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+          Sabés que algo no funciona, pero no sabés qué ni por dónde empezar. Esto es para vos.
+        </p>
+        <ul class="text-sm text-slate-300 space-y-3 mb-8">
+          <li class="flex items-start gap-2"><span class="text-slate-500">•</span> Reviso cómo trabajás hoy (de verdad).</li>
+          <li class="flex items-start gap-2"><span class="text-slate-500">•</span> Identifico dónde se pierde tiempo/plata.</li>
+          <li class="flex items-start gap-2"><span class="text-slate-500">•</span> Mapeo herramientas, accesos e integraciones.</li>
+        </ul>
+        <div class="mt-auto pt-6 border-t border-slate-800">
+          <p class="text-sm text-white"><strong class="text-slate-500 block mb-1">Entregable:</strong> Un plan claro de qué cambiar, en qué orden y por qué.</p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-b from-blue-900/40 to-cardBg border border-brandBlue/50 p-6 md:p-8 rounded-2xl reveal shadow-2xl relative hover:-translate-y-2 transition duration-300 transform md:-translate-y-4 flex flex-col">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brandBlue text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg border border-blue-400">
+          MÁS ELEGIDO
+        </div>
+        <div class="w-12 h-12 bg-blue-900/50 rounded-lg flex items-center justify-center text-xl mb-6 border border-blue-500/30">🚀</div>
+        <h3 class="text-2xl font-bold mb-1 text-white">Implementación MVP</h3>
+        <p class="text-brandBlue text-sm font-semibold mb-6">Demora: 2 a 4 semanas</p>
+        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+          Sabés qué necesitás, pero no tenés tiempo ni criterio para implementarlo bien. Lo hacemos juntos, rápido y con control.
+        </p>
+        <ul class="text-sm text-slate-300 space-y-3 mb-8">
+          <li class="flex items-start gap-2"><span class="text-brandBlue">•</span> Primera versión operativa (sin humo).</li>
+          <li class="flex items-start gap-2"><span class="text-brandBlue">•</span> Integraciones necesarias (pagos/tienda).</li>
+          <li class="flex items-start gap-2"><span class="text-brandBlue">•</span> Panel claro + logs/alertas para control.</li>
+        </ul>
+        <div class="mt-auto pt-6 border-t border-slate-800">
+          <p class="text-sm text-white"><strong class="text-brandBlue block mb-1">Entregable:</strong> Una primera versión andando en producción, con control y métricas.</p>
+        </div>
+      </div>
+
+      <div class="bg-cardBg border border-slate-800 p-6 md:p-8 rounded-2xl shadow-lg reveal hover:-translate-y-2 hover:border-slate-600 transition duration-300 flex flex-col">
+        <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-xl mb-6 border border-slate-700">⚙️</div>
+        <h3 class="text-2xl font-bold mb-1 text-white">Acompañamiento</h3>
+        <p class="text-brandBlue text-sm font-semibold mb-6">Retainer mensual</p>
+        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+          Tenés algo funcionando y querés a alguien con criterio que lo mantenga, lo mejore y te avise antes de que explote.
+        </p>
+        <ul class="text-sm text-slate-300 space-y-3 mb-8">
+          <li class="flex items-start gap-2"><span class="text-slate-500">•</span> Mantenimiento preventivo (menos incendios).</li>
+          <li class="flex items-start gap-2"><span class="text-slate-500">•</span> Ajustes por cambios de plataformas/APIs.</li>
+          <li class="flex items-start gap-2"><span class="text-slate-500">•</span> Mejoras y nuevas funciones por prioridad.</li>
+        </ul>
+        <div class="mt-auto pt-6 border-t border-slate-800">
+          <p class="text-sm text-white"><strong class="text-slate-500 block mb-1">Entregable:</strong> Menos incendios, más control y mejoras constantes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="productos" class="bg-[#0B111A] py-16 md:py-24 border-y border-slate-800/50 reveal">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-16 text-center text-white">Herramientas que ya están en producción.</h2>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="bg-cardBg p-8 rounded-2xl border border-slate-700/50 hover:border-meliYellow/50 transition">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-meliYellow">Calculadora ML</h3>
+            <span class="text-xs font-semibold px-2 py-1 bg-yellow-500/10 text-yellow-500 rounded border border-yellow-500/20">Pricing</span>
+          </div>
+          <p class="text-sm text-slate-400 mb-4">
+            <strong>El problema:</strong> vender sin saber cuánto te queda de verdad después de comisiones, impuestos y retenciones.
+          </p>
+          <div class="bg-slate-900/50 p-4 rounded-lg border border-slate-800 mb-6">
+            <p class="text-xs text-slate-500 uppercase font-bold mb-2">Qué te resuelve:</p>
+            <ul class="space-y-2 text-sm text-slate-300">
+              <li class="flex items-start gap-2"><span class="text-meliYellow">•</span> Calcula precio sugerido por margen real (no “a ojo”).</li>
+              <li class="flex items-start gap-2"><span class="text-meliYellow">•</span> Simula cuotas y descuentos sin comerte el margen.</li>
+              <li class="flex items-start gap-2"><span class="text-meliYellow">•</span> Te muestra el “te queda” neto claro.</li>
+            </ul>
+          </div>
+          <p class="text-xs text-slate-500">
+            Ideal para vendedores que quieren decisiones rápidas con números claros.
+          </p>
+        </div>
+
+        <div class="bg-cardBg p-8 rounded-2xl border border-slate-700/50 hover:border-brandBlue/50 transition">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-brandBlue">Operación ordenada</h3>
+            <span class="text-xs font-semibold px-2 py-1 bg-blue-500/10 text-blue-400 rounded border border-blue-500/20">Sistemas</span>
+          </div>
+          <p class="text-sm text-slate-400 mb-4">
+            <strong>El problema:</strong> negocio repartido en WhatsApp + planillas + apps sueltas, sin control y con errores que cuestan plata.
+          </p>
+          <div class="bg-slate-900/50 p-4 rounded-lg border border-slate-800 mb-6">
+            <p class="text-xs text-slate-500 uppercase font-bold mb-2">Qué hago:</p>
+            <ul class="space-y-2 text-sm text-slate-300">
+              <li class="flex items-start gap-2"><span class="text-brandBlue">•</span> Ordeno el flujo (qué entra, dónde va y quién hace qué).</li>
+              <li class="flex items-start gap-2"><span class="text-brandBlue">•</span> Defino accesos y responsabilidades (sin “todos ven todo”).</li>
+              <li class="flex items-start gap-2"><span class="text-brandBlue">•</span> Dejo logs/alertas para que no estés ciego cuando falla algo.</li>
+            </ul>
+          </div>
+          <p class="text-xs text-slate-500">
+            No vendo “magia”: vendo control, estabilidad y orden para poder crecer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-24 container mx-auto px-6 max-w-4xl relative z-10">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Las preguntas que todos tienen antes de escribirme.</h2>
+      <p class="text-slate-400">Respuestas cortas. Sin vueltas.</p>
+    </div>
+
+    <div class="space-y-4">
+      <details class="bg-cardBg border border-slate-800 rounded-xl p-6">
+        <summary class="flex items-center justify-between">
+          <span class="text-white font-semibold">¿Hacés “bots” y automatizaciones?</span>
+          <span class="text-slate-400">+</span>
+        </summary>
+        <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+          Sí, pero con criterio. Primero ordeno el proceso y defino control (logs, alertas, plan B). Automatizar un caos solo acelera el caos.
+        </p>
+      </details>
+
+      <details class="bg-cardBg border border-slate-800 rounded-xl p-6">
+        <summary class="flex items-center justify-between">
+          <span class="text-white font-semibold">¿Trabajás con negocios chicos?</span>
+          <span class="text-slate-400">+</span>
+        </summary>
+        <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+          Sí. Justamente ahí es donde más se pierde tiempo por falta de estructura. La idea es mejorar con pasos simples, no meter herramientas caras porque sí.
+        </p>
+      </details>
+
+      <details class="bg-cardBg border border-slate-800 rounded-xl p-6">
+        <summary class="flex items-center justify-between">
+          <span class="text-white font-semibold">¿Qué necesito para arrancar?</span>
+          <span class="text-slate-400">+</span>
+        </summary>
+        <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+          Nada raro: cómo trabajás hoy (pantallazos/explicación), qué te duele (tiempo/plata/errores) y qué objetivo querés lograr.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <section id="contacto" class="py-24 bg-[#0B111A] border-t border-slate-800/50">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <div class="bg-cardBg border border-slate-800 rounded-2xl p-8 md:p-10">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-3">Si llegaste hasta acá, algo de esto te resonó.</h2>
+            <p class="text-slate-400 leading-relaxed">
+              Escribime. Sin formulario ni propuesta de 40 páginas. Me contás cómo operás y en 15 minutos te digo si puedo ayudarte.
+            </p>
+            <p class="text-xs text-slate-500 mt-4">
+              Consejo: vení con 2–3 ejemplos concretos (un flujo, una planilla, una herramienta que te esté complicando).
+            </p>
+          </div>
+
+          <div class="w-full md:w-auto flex flex-col gap-3">
+            <a href="https://wa.me/541134431720?text=Hola%20Dami%C3%A1n%2C%20llegu%C3%A9%20desde%20tu%20p%C3%A1gina%20y%20quiero%20hablar%20sobre%20mi%20e-commerce.549XXXXXXXXXX" target="_blank" rel="noopener"
+               class="bg-brandGreen text-black font-extrabold py-3.5 px-6 rounded-lg text-center hover:opacity-90 transition">
+              💬 Hablar por WhatsApp
+            </a>
+            <a href="mailto:tu-mail@dominio.com"
+               class="bg-white/10 border border-white/15 text-white font-bold py-3.5 px-6 rounded-lg text-center hover:bg-white/15 transition">
+              ✉️ Enviar mail
+            </a>
+            <p class="text-[11px] text-slate-500 text-center">
+              Cambiá el WhatsApp y el mail por los tuyos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-xs text-slate-600 mt-10">
+        © <span id="year"></span> dbengotech — Orden antes que automatización. Tecnología con criterio.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+<script>
+(function(){
+  const items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('in-view'));
+    return;
+  }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  items.forEach(el => obs.observe(el));
+})();
+</script>
+
+</body>
+</html>
